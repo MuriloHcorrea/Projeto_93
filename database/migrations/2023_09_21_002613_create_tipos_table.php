@@ -15,7 +15,7 @@ return new class extends Migration
             $table->increments('id_tipo');
             $table->timestamps();
 
-            // lll
+            // lll fasfasfasfasfasf
         });
     }
 
