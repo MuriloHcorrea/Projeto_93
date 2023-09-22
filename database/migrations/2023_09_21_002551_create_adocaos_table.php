@@ -12,8 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('adocaos', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id_adocao');
+           $table->increments('id_cliente');
+           $table->increments('id_usuario');
+           $table->increments('id_pet');
+           $table->text('status_adocao');
             $table->timestamps();
+            $table->softDeletes();
 
         });
     }
