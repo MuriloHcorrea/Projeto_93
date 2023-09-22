@@ -9,7 +9,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Adocao;
+use App\Models\User;
+use App\Models\HistoricoCliente;
+use App\Models\Sexo;
+use App\Models\Raca;
+use App\Models\Porte;
 use App\Models\Cor;
 
 
@@ -84,20 +89,7 @@ class Pet extends Model
      */
 
      /**
-
-
-
-      * retorna o tipo do lançamento
-
-
-
-      * 21-08-2023
-
-
-
-      * @return belongsTo
-
-
+      * retorna
 
       */
 
@@ -115,236 +107,101 @@ class Pet extends Model
             'id_sexo'
         );
 
-
-
     }
-
-
-
-
-
-
-
-    /**
-
-
-
-      * retorna o centro de custo do lançamento
-
-
-
-      * 21-08-2023
-
-
-
-      * @return belongsTo
-
-
-
-      */
-
-
 
     public function porte()
 
 
-
     {
-
-
 
         return $this->belongsTo(
 
-
-
             porte::class,
-
-
-
             'id_porte',
-
-
-
             'id_porte'
-
-
 
         );
 
-
-
     }
-
-
-
-
-
-
-
-    /**
-
-
-
-      * retorna o usuario do lançamento
-
-
-
-      * 21-08-2023
-
-
-
-      * @return belongsTo
-
-
-
-      */
-
 
 
     public function cor()
 
-
-
     {
-
-
 
         return $this->belongsTo(
 
-
-
-            cor::class,
-
-
+            Cor::class,
 
             'id_cor',
 
-
-
             'id_cor'
 
-
-
         );
-
-
 
     }
 
-
-
-
-
-
-
-
-
-
-
-    /**
-
-
-
-     * ---------------------------------------------------
-
-
-
-     * | Mutators
-
-
-
-     * | https://laravel.com/docs/10.x/eloquent-mutators
-
-
-
-     * ---------------------------------------------------
-
-
-
-     */
-
-
-
-    protected function descricao(): Attribute
-
-
+    public function raca()
 
     {
 
+        return $this->belongsTo(
 
+            Raca::class,
 
-        return Attribute::make(
+            'id_raca',
 
-
-
-            get: fn (string $value) => ucfirst($value),
-
-
-
-            set: fn (string $value) => strtolower(trim($value)),
-
-
+            'id_raca'
 
         );
 
-
-
     }
 
-
-
-
-
-
-
-    protected function valor(): Attribute
-
-
+    public function adocao()
 
     {
 
+        return $this->belongsTo(
 
+            Adocao::class,
 
-        return Attribute::make(
+            'id_pet',
 
-
-
-            get: fn (string $value) => number_format($value,2,',','.'),
-
-
+            'id_pet'
 
         );
 
-
-
     }
 
+    public function historico_pet()
 
+    {
 
+        return $this->belongsTo(
 
+            HistoricoPet::class,
 
+            'id_pet',
 
+            'id_pet'
 
+        );
 
+    }
+    public function user()
 
+    {
 
+        return $this->belongsTo(
 
-    /**
+            User::class,
 
+            'id_user',
 
+            'id_user'
 
-     * ----------------------------------------------------
+        );
 
-
-
-     * | Outros Métodos
-
-
-
-     * -------------------------------
-
-
-
-     */
+    }
 
 }

@@ -12,8 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cors', function (Blueprint $table) {
-            $table->id();
+
+            $table->increments('id_cor');
+
+            $table->string('cor',45);
+
             $table->timestamps();
+
+            $table->softDeletes();
+
         });
     }
 
