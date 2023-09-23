@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Sexo;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -26,23 +26,23 @@ return new class extends Migration
 
 
 
-       \App\Models\Sexo::create([
+    //    \App\Models\Sexo::create([
 
-            'id_sexo' => 1,
+    //         'id_sexo' => 1,
 
-            'sexo' => 'Macho'
+    //         'sexo' => 'Macho'
 
-        ]);
+    //     ]);
 
 
 
-        \App\Models\Sexo::create([
+    //     \App\Models\Sexo::create([
 
-            'id_sexo' => 2,
+    //         'id_sexo' => 2,
 
-            'sexo' => 'Femea'
+    //         'sexo' => 'Femea'
 
-        ]);
+    //     ]);
 
     }
 
@@ -57,6 +57,6 @@ return new class extends Migration
 
     {
 
-        Schema::dropIfExists('sexo');
+        Schema::dropIfExists('sexos');
     }
 };

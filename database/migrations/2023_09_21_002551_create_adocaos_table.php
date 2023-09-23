@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('adocaos', function (Blueprint $table) {
             $table->increments('id_adocao');
-           $table->increments('id_cliente');
-           $table->increments('id_usuario');
-           $table->increments('id_pet');
+           $table->integer('id_cliente');
+           $table->integer('id_usuario');
+           $table->integer('id_pet');
            $table->text('status_adocao');
             $table->timestamps();
             $table->softDeletes();
