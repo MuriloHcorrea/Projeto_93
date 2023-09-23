@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('tipos', function (Blueprint $table) {
             $table->increments('id_tipo');
+            $table->string('tipo',45);
             $table->timestamps();
+            $table->softDeletes();
 
             // lll fasfasfasfasfasf
         });
