@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/cliente', function () {
+    return redirect()->route('cliente.index');
+})->middleware(['auth', 'verified'])->name('cliente');
+
 Route::get('/', function () {
     return view('welcome');
 });

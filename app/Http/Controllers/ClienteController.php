@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cliente;
 use Illuminate\Http\Request;
-
+use App\Models\User;
 class ClienteController extends Controller
 {
     /**
@@ -12,7 +12,9 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //
+        $cliente = Cliente::orderBy('id_cliente','desc')
+            ->paginate(10);
+        return view('Cliente.index');
     }
 
     /**
