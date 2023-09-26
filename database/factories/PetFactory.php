@@ -23,7 +23,7 @@ class PetFactory extends Factory
             'id_porte' => fake()->numberBetween(1,3),
             'id_raca'  => fake()->numberBetween(1,3),
             'id_cor'  => fake()->numberBetween(1,3),
-            'id_historico_pet' => fake()->numberBetween(1,10),
+            'id_historico' => fake()->numberBetween(1,10),
             'nome' => fake()->name(),
             'dt_nascimento' => fake()->date(),
             'deficiencia' => fake() -> word(),
