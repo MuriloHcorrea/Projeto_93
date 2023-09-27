@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Cliente;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Pet;
+use App\Models\Tipo;
 class ClienteController extends Controller
 {
     /**
@@ -13,8 +15,10 @@ class ClienteController extends Controller
     public function index()
     {
         $cliente = Cliente::orderBy('id_cliente','desc')
-            ->paginate(10);
-        return view('Cliente.index');
+        ->paginate(10);
+
+    return view('Cliente.index')
+        ->with(compact('cliente'));
     }
 
     /**
@@ -22,7 +26,18 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        $cliente = null;
+        $pet = Pet::class;
+        $tipos = Tipo::class;
+
+        return view('cliente.form')
+            ->with(
+                compact(
+                    'cliente',
+                    'pet',
+                    'tipo'
+                )
+            );
     }
 
     /**
