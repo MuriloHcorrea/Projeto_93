@@ -4,6 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Pet;
 use Illuminate\Http\Request;
+use App\Models\{
+    Sexo,
+    Raca,
+    Cor,
+    Porte,
+    User,
+    HistoricoPet
+};
 
 class PetController extends Controller
 {
@@ -12,7 +20,12 @@ class PetController extends Controller
      */
     public function index()
     {
-        //
+        $pets = Pet::orderBy('nome')
+            ->paginate(10);
+
+        return view('pet.index')
+
+            ->with(compact('pets'));
     }
 
     /**
@@ -36,7 +49,15 @@ class PetController extends Controller
      */
     public function show(Pet $pet)
     {
-        //
+       // $pet = Pet::with([
+
+     //   ])->find();
+
+
+
+        return view('pet.show')
+
+            ->with(compact('pet'));
     }
 
     /**
