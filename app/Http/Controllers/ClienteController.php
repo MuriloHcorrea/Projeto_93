@@ -27,17 +27,7 @@ class ClienteController extends Controller
     public function create()
     {
         $cliente = null;
-        $pet = Pet::class;
-        $tipos = Tipo::class;
-
-        return view('cliente.form')
-            ->with(
-                compact(
-                    'cliente',
-                    'pet',
-                    'tipo'
-                )
-            );
+        return view('cliente.form')->with(compact('cliente'));
     }
 
     /**
@@ -45,7 +35,10 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Cliente::create($request->all());
+        return redirect()
+            ->route('cliente.index')
+            ->with('Novo', 'Cliente cadastrado com sucesso!');
     }
 
     /**

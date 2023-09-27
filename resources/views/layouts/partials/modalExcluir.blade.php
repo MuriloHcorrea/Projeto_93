@@ -69,21 +69,12 @@ data-bs-target="#modalExcluir"
 {{-- SCRIPT MODAL DE EXCLUSÃO --}}
 
 <script>
-
-        ;
-
         $('#modalExcluir').on('show.bs.modal', function(event) {
-
         let button = $(event.relatedTarget)
-
         let identificacao = button.data('identificacao')
-
         let url = button.data('url')
-
         $('#identificacao').text(identificacao)
-
         $('#Excluir').attr('action', url)
-
     })
 
 </script>
