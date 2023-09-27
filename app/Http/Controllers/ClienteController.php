@@ -35,18 +35,25 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
+
         Cliente::create($request->all());
-        return redirect()
-            ->route('cliente.index')
-            ->with('Novo', 'Cliente cadastrado com sucesso!');
+        return redirect()->route('cliente.index')->with('Novo', 'Cliente cadastrado com sucesso!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Cliente $cliente)
+    public function show(int $id)
     {
-        //
+        $cliente = Cliente::with([
+            'cliente',
+
+
+        ])->find($id);
+
+        return view('cliente.show')
+            ->with(compact('cliente'));
     }
 
     /**
