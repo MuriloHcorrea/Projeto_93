@@ -14,6 +14,13 @@ data-bs-target="#modalExcluir"
 
 {{-- MODAL DE EXCLUSÃO --}}
 
+{{-- CSS --}}
+
+
+
+
+
+
 <div class="modal fade" id="modalExcluir" tabindex="-1" role="dialog" aria-labelledby="modalExcluirLabel"
 
     aria-hidden="true">

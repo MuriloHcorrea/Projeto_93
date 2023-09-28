@@ -6,7 +6,7 @@
 
         <i class="bi bi-wallet2"></i>
 
-        - CLEINTES
+        - CLIENTES
         |
         <a class="btn btn-primary"
            href="{{ route('cliente.create') }}">
@@ -29,12 +29,13 @@
             <thead>
                 <caption>LISTA DE</caption>
                 <tr>
-                    <th>#</th>
+                    <th>CRUD</th>
                     <th>Nome</th>
                     <th>Data de nascimento</th>
                     <th>CPF</th>
                     <th>E-mail</th>
                     <th>Endereço</th>
+                    <th>Criado em:</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">
@@ -55,15 +56,20 @@
 
                             {{-- excluir --}}
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#modalExcluir" data-identificacao="" data-url="">
+                                data-bs-target="#modalExcluir" data-identificacao="{{ $cliente->id_cliente }}"
+                                data-url="{{ route('cliente.destroy',['id' => $cliente->id_cliente]) }}">
                                 <i class="bi bi-trash"></i>
+
                             </button>
                         </div>
                     </td>
                     <td>{{ $cliente->nome }}</td>
-                    <td>
-                        {{ $cliente->created_at->format('d/m/Y \a\s H:i') }}h
-                    </td>
+                    <td>{{ $cliente->dt_nascimento }}</td>
+                    <td>{{ $cliente->cpf }}</td>
+                    <td>{{ $cliente->email }}</td>
+                    <td>{{ $cliente->endereco }}</td>
+                    <td>{{ $cliente->created_at->format('d/m/Y \a\s H:i') }}h</td>
+
                 </tr>
 
                 @empty

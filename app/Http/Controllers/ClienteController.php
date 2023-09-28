@@ -38,7 +38,7 @@ class ClienteController extends Controller
         // dd($request->all());
 
         Cliente::create($request->all());
-        return redirect()->route('cliente.index')->with('Novo', 'Cliente cadastrado com sucesso!');
+        return redirect()->route('cliente.index')->with('novo', 'Cliente cadastrado com sucesso!');
     }
 
     /**
@@ -75,8 +75,11 @@ class ClienteController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Cliente $cliente)
+    public function destroy(int $id)
     {
-        //
+        Cliente::find($id)->delete();
+        return redirect()
+            ->back()
+            ->with('excluido', 'Excluído com sucesso!');
     }
 }
