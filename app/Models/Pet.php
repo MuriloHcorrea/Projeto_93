@@ -27,7 +27,7 @@ class Pet extends Model
 
 
 
-    protected $table = 'pet';
+    protected $table = 'pets';
 
     protected $primaryKey = 'id_pet';
 
@@ -41,38 +41,19 @@ class Pet extends Model
 
     ];
 
-
-
-
-
-
-
     protected $fillable = [
-
         'id_raca',
-
         'id_porte',
-
         'id_cor',
-
         'id_sexo',
-
         'id_historico_pet',
-
         'id_user',
-
         'nome',
-
         'dt_nascimento',
-
         'deficiencia',
-
         'castrado',
-
         'peso',
-
         'vacina',
-
     ];
 
 
