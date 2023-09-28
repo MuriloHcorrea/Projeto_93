@@ -1,10 +1,10 @@
 <?php
 
-
-
 use App\Http\Controllers\ProfileController;
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Cliente;
+use GuzzleHttp\Exception\ClientException;
 
 use App\Http\Controllers\{
 
@@ -17,6 +17,10 @@ use App\Http\Controllers\{
 
 
 
+Route::get('/cliente', function () {
+    return redirect()->route('cliente.index');
+})->middleware(['auth', 'verified'])->name('cliente');
+
 Route::get('/', function () {
 
     return view('welcome');
@@ -28,8 +32,6 @@ Route::get('/dashboard', function () {
 
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
-
 
 Route::middleware('auth')->group(function () {
 

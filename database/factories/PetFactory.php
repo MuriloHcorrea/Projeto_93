@@ -17,7 +17,20 @@ class PetFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+
+            'id_user' => fake()->numberBetween(1,20),
+            'id_sexo' => fake()->numberBetween(3,4),
+            'id_porte' => fake()->numberBetween(1,3),
+            'id_raca'  => fake()->numberBetween(1,3),
+            'id_cor'  => fake()->numberBetween(1,3),
+            'id_historico' => fake()->numberBetween(1,10),
+            'nome' => fake()->name(),
+            'dt_nascimento' => fake()->date(),
+            'deficiencia' => fake() -> word(),
+            'castrado' => fake() -> numberBetween(0,1),
+            'peso' => fake()->numberBetween(1,15),
+            'vacina' => fake()->word()
+
         ];
     }
 }

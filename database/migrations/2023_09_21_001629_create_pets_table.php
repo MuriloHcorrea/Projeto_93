@@ -12,8 +12,23 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pets', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id_pet');
+            $table->integer('id_porte');
+            $table->integer('id_raca');
+            $table->integer('id_cor');
+            $table->integer('id_sexo');
+            $table->integer('id_historico');
+            $table->integer('id_user');
+            $table->string('nome',45);
+            $table->date('dt_nascimento');
+            $table->text('deficiencia');
+            $table->string('castrado',45);
+            $table->string('peso',45);
+            $table->text('vacina');
             $table->timestamps();
+            $table->softDeletes();
+
+
         });
     }
 
