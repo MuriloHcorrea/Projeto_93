@@ -27,7 +27,7 @@ class Pet extends Model
 
 
 
-    protected $table = 'pet';
+    protected $table = 'pets';
 
     protected $primaryKey = 'id_pet';
 
@@ -57,7 +57,7 @@ class Pet extends Model
 
         'id_sexo',
 
-        'id_historico_pet',
+        'id_historico',
 
         'id_user',
 

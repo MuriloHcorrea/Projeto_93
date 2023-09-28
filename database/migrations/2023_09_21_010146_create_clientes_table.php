@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('cpf');
             $table->string('email');
             $table->string('endereco');
-
             $table->timestamps();
             $table->softDeletes();
         });
