@@ -50,10 +50,10 @@
                             </a>
 
                             {{-- editar --}}
-                            <a class="btn btn-dark" href="#">
-                                <i class="bi bi-pencil-square"></i>
-                            </a>
-
+                            <a class="btn btn-dark"
+                                    href="{{ route('cliente.edit', ['id' => $cliente->id_cliente]) }}">
+                                    <i class="bi bi-pencil-square"></i>
+                              </a>
                             {{-- excluir --}}
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                 data-bs-target="#modalExcluir" data-identificacao="{{ $cliente->id_cliente }}"

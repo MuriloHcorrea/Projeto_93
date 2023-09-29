@@ -59,17 +59,23 @@ class ClienteController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Cliente $cliente)
+    public function edit(Cliente $id)
     {
-        //
+        $cliente = Cliente::find($id)->first();
+        return view('cliente.form')
+            ->with(compact('cliente'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Cliente $cliente)
+    public function update(Request $request, Int $id)
     {
-        //
+        $cliente = Cliente::find($id);
+        $cliente->update($request->all());
+        return redirect()
+            ->route('cliente.index')
+            ->with('atualizado', ' Cliente Atualizado com sucesso!');
     }
 
     /**
