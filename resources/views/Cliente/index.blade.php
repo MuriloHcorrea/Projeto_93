@@ -45,9 +45,12 @@
                         <div class="flex-column">
 
                             {{-- ver --}}
-                            <a class="btn btn-success" href="#">
-                                <i class="bi bi-eye"></i>
-                            </a>
+                            <a class="btn btn-success"
+                            href="{{ route('cliente.show',
+                                          ['id'=>$cliente->id_cliente]
+                                          ) }}">
+                            <i class="bi bi-eye"></i>
+                        </a>
 
                             {{-- editar --}}
                             <a class="btn btn-dark"
