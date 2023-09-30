@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('historico_clientes', function (Blueprint $table) {
             $table->increments('id_historico_cliente');
-            $table->increments('id_cliente');
+            $table->integer('id_cliente');
             $table->date('data_adocao');
             $table->text('descricao');
              $table->timestamps();

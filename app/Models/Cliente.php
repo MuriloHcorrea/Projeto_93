@@ -11,7 +11,7 @@ use App\Models\HistoricoCliente;
 class Cliente extends Model
 {
     use HasFactory;
-    protected $table = 'cliente';
+    protected $table = 'clientes';
 
     protected $primaryKey = 'id_cliente';
 
@@ -24,16 +24,11 @@ class Cliente extends Model
 
 
     protected $fillable = [
-
-
         'nome',
         'dt_nascimento',
         'cpf',
         'email',
         'endereco'
-
-
-
     ];
 
 

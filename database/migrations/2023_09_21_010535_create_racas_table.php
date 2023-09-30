@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('racas', function (Blueprint $table) {
             $table->increments('id_raca');
-            $table->increments('id_tipo');
+            $table->integer('id_tipo');
             $table->string('raca');
 
             $table->timestamps();
