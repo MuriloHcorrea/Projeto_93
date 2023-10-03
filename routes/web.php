@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdocaoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -36,7 +37,6 @@ Route::get('/dashboard', function () {
 /**
  * --------------------------
  * | cliente
- * | 25-08-2023
  * --------------------------
  */
  Route::prefix('cliente')
@@ -64,11 +64,36 @@ Route::get('/dashboard', function () {
 
 
 
+/**
+ * --------------------------
+ * | Adoção
+ * --------------------------
+ */
 
 
+ Route::prefix('adocao')
+ ->controller(AdocaoController::class)
+ ->middleware('auth')
+ ->group(function () {
+     Route::get('/', 'index')
+         ->name('adocao.index');
+     Route::get('/novo', 'create')
+         ->name('adocao.create');
+     Route::get('/editar/{id}', 'edit')
+         ->name('adocao.edit');
+     Route::get('exibir/{id}', 'show')
+         ->name('adocao.show');
 
 
+     Route::post('cadastrar', 'store')
+         ->name('adocao.store');
+     Route::post('atualizar/{id}', 'update')
+         ->name('adocao.update');
+     Route::post('excluir/{id}', 'destroy')
+         ->name('adocao.destroy');
 
+
+        });
 
 
 
