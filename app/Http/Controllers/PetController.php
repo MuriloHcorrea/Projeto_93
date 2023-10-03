@@ -26,8 +26,8 @@ class PetController extends Controller
     }
     public function create()
     {
-        $cliente = null;
-        return view('cliente.form')->with(compact('cliente'));
+        $pet = null;
+        return view('pet.form')->with(compact('pet'));
     }
     /**
      * Store a newly created resource in storage.
@@ -35,10 +35,10 @@ class PetController extends Controller
     public function store(Request $request)
     {
 
-        // dd($request->all());
+       // ($request->all());
 
         Pet::create($request->all());
-       return redirect()->route('cliente.index')->with('novo', 'Cliente cadastrado com sucesso!');
+       return redirect()->route('pet.index')->with('novo', 'pet cadastrado com sucesso!');
 
     }
     /**
@@ -46,7 +46,7 @@ class PetController extends Controller
      */
     public function show(int $id)
     {
-        $pets = Pet::with([
+        $pet = Pet::with([
            'pet',
         ])->find($id);
         return view('pet.show')
@@ -55,17 +55,23 @@ class PetController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pet $pet)
+    public function edit(Pet $id)
     {
-        //
+        $pet = Pet::find($id)->first();
+        return view('pet.form')
+            ->with(compact('pet'));
     }
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Pet $pet)
-    {
-        //
-    }
+    public function update(Request $request, Int $id)
+      {
+          $pet = Pet::find($id);
+          $pet->update($request->all());
+          return redirect()
+              ->route('pet.index')
+              ->with('atualizado', ' Pet Atualizado com sucesso!');
+      }
     /**
      * Remove the specified resource from storage.
      */

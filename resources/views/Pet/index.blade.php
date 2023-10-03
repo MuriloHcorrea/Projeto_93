@@ -32,8 +32,8 @@
                     <th>CRUD</th>
                     <th>Nome</th>
                     <th>Data de nascimento</th>
-                    <th>CPF</th>
-                    <th>E-mail</th>
+                    <th>Peso</th>
+                    <th>Cor</th>
                     <th>Endereço</th>
                     <th>Criado em:</th>
                 </tr>
@@ -44,14 +44,17 @@
                     <td scope="row" class="col-2">
                         <div class="flex-column">
 
-                            {{-- ver --}}
-                            <a class="btn btn-success" href="#">
-                                <i class="bi bi-eye"></i>
-                            </a>
-
-                            {{-- editar --}}
-                            <a class="btn btn-dark" href="#">
-                                <i class="bi bi-pencil-square"></i>
+                          {{-- ver --}}
+                          <a class="btn btn-success"
+                          href="{{ route('pet.show',
+                                        ['id'=>$pet->id_pet]
+                                        ) }}">
+                          <i class="bi bi-eye"></i>
+                      </a>
+                          {{-- editar --}}
+                          <a class="btn btn-dark"
+                                  href="{{ route('pet.edit', ['id' => $pet->id_pet]) }}">
+                                  <i class="bi bi-pencil-square"></i>
                             </a>
 
                             {{-- excluir --}}

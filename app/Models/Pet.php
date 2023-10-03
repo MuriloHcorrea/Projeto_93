@@ -46,9 +46,7 @@ class Pet extends Model
         'id_porte',
         'id_cor',
         'id_sexo',
-
         'id_historico_pet',
-
         'id_user',
         'nome',
         'dt_nascimento',
