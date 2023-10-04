@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ClienteController;
+
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
@@ -59,33 +59,7 @@ Route::middleware('auth')->group(function () {
 
  });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-});
-
-    Route::prefix('pet-animal')
+    Route::prefix('pet')
     ->controller(PetController::class)
     ->middleware('auth')
     ->group(function () {
