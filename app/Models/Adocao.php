@@ -28,7 +28,7 @@ class Adocao extends Model
         'id_cliente',
         'id_usuario',
         'id_pet',
-        'status_doacao'
+        'status_adocao'
 
     ];
 

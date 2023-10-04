@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdocaoController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\PetController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Cliente;
@@ -97,8 +98,31 @@ Route::get('/dashboard', function () {
 
 
 
+/**
+ * --------------------------
+ * | Pets
+ * --------------------------
+ */
 
-
+ Route::prefix('pet')
+    ->controller(PetController::class)
+    ->middleware('auth')
+    ->group(function () {
+        Route::get('/', 'index')
+            ->name('pet.index');
+        Route::get('/novo', 'create')
+            ->name('pet.create');
+        Route::get('/editar/{id}', 'edit')
+            ->name('pet.edit');
+        Route::get('exibir/{id}', 'show')
+            ->name('pet.show');
+        Route::post('cadastrar', 'store')
+            ->name('pet.store');
+        Route::post('atualizar/{id}', 'update')
+            ->name('pet.update');
+        Route::post('excluir/{id}', 'destroy')
+            ->name('pet.destroy');
+        });
 
 
 
