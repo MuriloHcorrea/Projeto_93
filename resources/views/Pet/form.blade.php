@@ -47,6 +47,8 @@
                 <select name="id_sexo" id="id_sexo" class="form-select">
                     <option value="{{$sexos::MACHO}}">Macho</option>
                     <option value="{{$sexos::FEMEA}}">Femea</option>
+
+
                 </select>
         </div>
 
