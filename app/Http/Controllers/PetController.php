@@ -20,7 +20,7 @@ class PetController extends Controller
      */
     public function index()
     {
-        $pets = Pet::orderBy('nome')->paginate(10);
+        $pets = Pet::orderBy('id_pet','desc')->paginate(10);
         return view('pet.index')
             ->with(compact('pets'));
     }
