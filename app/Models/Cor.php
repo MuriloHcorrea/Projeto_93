@@ -41,7 +41,9 @@ class Cor extends Model
 
     ];
 
-
+   const PRETO = 1;
+   const BRANCO = 2;
+   const CARAMELO = 3;
 
 
 

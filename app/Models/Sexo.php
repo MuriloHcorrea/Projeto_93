@@ -29,6 +29,9 @@ class Sexo extends Model
         'sexo'
     ];
 
+    const MACHO =3;
+    const FEMEA =4;
+
     /**
 
      * | Relacionamentos

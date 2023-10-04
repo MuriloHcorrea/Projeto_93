@@ -37,6 +37,11 @@ class Porte extends Model
         'porte'
     ];
 
+
+    const PEQUENO = 1;
+    const MEDIO = 2;
+    const GRANDE = 3;
+
     /**
 
      * | Relacionamentos

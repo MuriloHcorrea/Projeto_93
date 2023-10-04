@@ -44,7 +44,10 @@ class AdocaoController extends Controller
      */
     public function store(Request $request)
     {
-        Cliente::create($request->all());
+        //data-url="{{ route() }}"
+
+        $adocao = Adocao::create($request->all());
+        //dd($adocao);
         return redirect()->route('adocao.index')->with('novo', 'Adoção cadastrada com sucesso!');
     }
 
