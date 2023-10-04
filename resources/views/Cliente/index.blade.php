@@ -45,15 +45,16 @@
                         <div class="flex-column">
 
                             {{-- ver --}}
-                            <a class="btn btn-success" href="#">
+                            <a class="btn btn-success"
+                                href="{{ route('cliente.show',['id'=>$cliente->id_cliente])}}">
                                 <i class="bi bi-eye"></i>
                             </a>
 
                             {{-- editar --}}
-                            <a class="btn btn-dark" href="#">
-                                <i class="bi bi-pencil-square"></i>
-                            </a>
-
+                            <a class="btn btn-dark"
+                                    href="{{ route('cliente.edit', ['id' => $cliente->id_cliente]) }}">
+                                    <i class="bi bi-pencil-square"></i>
+                              </a>
                             {{-- excluir --}}
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                 data-bs-target="#modalExcluir" data-identificacao="{{ $cliente->id_cliente }}"

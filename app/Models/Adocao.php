@@ -11,7 +11,7 @@ class Adocao extends Model
 {
     use HasFactory;
 
-    protected $table = 'adocao';
+    protected $table = 'adocaos';
 
     protected $primaryKey = 'id_adocao';
 
@@ -25,11 +25,10 @@ class Adocao extends Model
 
     protected $fillable = [
 
-
         'id_cliente',
         'id_usuario',
         'id_pet',
-        'status_doacao'
+        'status_adocao'
 
     ];
 

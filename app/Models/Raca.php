@@ -23,6 +23,8 @@ class Raca extends Model
     ];
 
 
+
+
     protected $fillable = [
 
 
@@ -33,6 +35,11 @@ class Raca extends Model
 
 
     ];
+
+
+    const GOLDEN =1;
+    const PERSA =2;
+    const CALOPSITA =3;
 
 
     /**

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
@@ -31,10 +32,16 @@ Route::middleware('auth')->group(function () {
 
 });
 
-Route::prefix('cliente')
-->controller(ClienteController::class)
-->middleware('auth')
-->group(function () {
+/**
+ * --------------------------
+ * | cliente
+ * | 25-08-2023
+ * --------------------------
+ */
+ Route::prefix('cliente')
+ ->controller(ClienteController::class)
+ ->middleware('auth')
+ ->group(function () {
      Route::get('/', 'index')
          ->name('cliente.index');
      Route::get('/novo', 'create')
@@ -49,6 +56,30 @@ Route::prefix('cliente')
          ->name('cliente.update');
      Route::post('excluir/{id}', 'destroy')
          ->name('cliente.destroy');
+
+ });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

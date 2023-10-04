@@ -20,14 +20,11 @@ class PetController extends Controller
      */
     public function index()
     {
-        $pets = Pet::orderBy('nome')->paginate(10);
-        return view('pet.index')
-            ->with(compact('pets'));
+        //
     }
     public function create()
     {
-        $pet = null;
-        return view('pet.form')->with(compact('pet'));
+        //
     }
     /**
      * Store a newly created resource in storage.
