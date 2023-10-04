@@ -34,7 +34,7 @@
             </div>
             <div class="col-md-2">
                 <label for="id_sexo"  class="form-label">Sexo</label>
-                <select name="id_Cor" id="id_Cor" class="form-select">
+                <select name="id_sexo" id="id_sexo" class="form-select">
                     <option value="Macho">Macho</option>
                     <option value="Femea">Femea</option>
                 </select>
@@ -43,7 +43,7 @@
         <div class="col-md-2">
             <label for="id_raca"  class="form-label">Raça</label>
             <select name="id_raca" id="id_raca" class="form-select">
-                <option value="1">1</option>
+                <option value="1">goldem</option>
             </select>
         </div>
 
