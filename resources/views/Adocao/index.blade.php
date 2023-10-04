@@ -30,9 +30,10 @@
                 <caption>LISTA DE</caption>
                 <tr>
                     <th>CRUD</th>
-                    <th>Cliente</th>
-                    <th>ID cliente</th>
-                    <th>Dt adoção</th>
+                    <th>CLIENTE</th>
+                    <th>PET</th>
+                    <th>STATUS</th>
+                    <th>DATA CADASTRO DE ADOÇÃO</th>
 
                 </tr>
             </thead>
@@ -63,7 +64,8 @@
                         </div>
                     </td>
                     <td>{{ $adocao->cliente->nome }}</td>
-                    <td>{{ $adocao->cliente->id_cliente }}</td>
+                    <td>{{ $adocao->pet->nome }}</td>
+                    <td>{{ $adocao->status_adocao }}</td>
                     <td>{{ $adocao->created_at->format('d/m/Y \a\s H:i') }}h</td>
 
                 </tr>

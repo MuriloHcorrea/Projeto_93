@@ -33,6 +33,8 @@ class Adocao extends Model
     ];
 
 
+
+
     /**
 
      * | Relacionamentos

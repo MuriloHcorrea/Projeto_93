@@ -42,15 +42,14 @@
                 <input type="date" id="dt_nascimento" name="dt_nascimento" class="form-control"
                     value="{{ $pet ? $pet->dt_nascimento : old('dt_nascimento') }}"required>
             </div>
+
             <div class="col-md-2">
                 <label for="id_sexo"  class="form-label">Sexo</label>
                 <select name="id_sexo" id="id_sexo" class="form-select">
                     <option value="{{$sexos::MACHO}}">Macho</option>
                     <option value="{{$sexos::FEMEA}}">Femea</option>
-
-
                 </select>
-        </div>
+            </div>
 
         <div class="col-md-2">
             <label for="id_raca"  class="form-label">Raça</label>
