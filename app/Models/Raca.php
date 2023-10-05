@@ -11,12 +11,11 @@ use App\Models\Pet;
 class Raca extends Model
 {
     use HasFactory;
-    protected $table = 'raca';
+    protected $table = 'racas';
 
     protected $primaryKey = 'id_raca';
 
     protected $dates = [
-
         'created_at',
         'updated_at',
         'deleted_at'
@@ -26,14 +25,9 @@ class Raca extends Model
 
 
     protected $fillable = [
-
-
         'id_tipo',
         'raca',
         'cor'
-
-
-
     ];
 
 

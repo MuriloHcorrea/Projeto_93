@@ -6,24 +6,19 @@
 
         <i class="bi bi-wallet2"></i>
 
-        - Pet
+        - Raca
         |
         <a class="btn btn-primary"
-           href="{{ route('pet.create') }}">
-            Novo pet
+           href="{{ route('raca.create') }}">
+            Nova raca
         </a>
     </h1>
-
     {{-- alerts --}}
     @include('layouts.partials.alerts')
     {{-- /alerts --}}
-
-
     {{-- paginação --}}
         {{-- {!! $cliente->links() !!} --}}
     {{-- /paginação --}}
-
-
     <div class="table-responsive">
         <table class="table table-striped  table-hover ">
             <thead>
@@ -39,44 +34,39 @@
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                @forelse ($pets as $pet )
+                @forelse ($racas as $raca )
                 <tr>
                     <td scope="row" class="col-2">
                         <div class="flex-column">
 
                           {{-- ver --}}
                           <a class="btn btn-success"
-                          href="{{ route('pet.show',
-                                        ['id'=>$pet->id_pet]
+                          href="{{ route('raca.show',
+                                        ['id'=>$raca->id_raca]
                                         ) }}">
                           <i class="bi bi-eye"></i>
                       </a>
                           {{-- editar --}}
                           <a class="btn btn-dark"
-                                  href="{{ route('pet.edit', ['id' => $pet->id_pet]) }}">
+                                  href="{{ route('raca.edit', ['id' => $raca->id_raca]) }}">
                                   <i class="bi bi-pencil-square"></i>
                             </a>
 
                             {{-- excluir --}}
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#modalExcluir" data-identificacao="{{ $pet->id_pet }}"
-                                data-url="{{ route('pet.destroy',['id' => $pet->id_pet]) }}">
+                                data-bs-target="#modalExcluir" data-identificacao="{{ $raca->id_raca }}"
+                                data-url="{{ route('raca.destroy',['id' => $raca->id_raca]) }}">
                                 <i class="bi bi-trash"></i>
 
                             </button>
                         </div>
                     </td>
-                    <td>{{ $pet->nome }}</td>
-                    <td>{{ $pet->dt_nascimento }}</td>
-               {{-- <td>{{ $pet->raca }}</td> --}}
-               {{-- <td>{{ $pet->cor }}</td>--}}
-               {{-- <td>{{ $pet->porte }}</td> --}}
-                    <td>{{ $pet->peso }}</td>
-                    <td>{{ $pet->castrado }}</td>
-                    <td>{{ $pet->deficiencia }}</td>
-                    <td>{{ $pet->vacina }}</td>
-                    <td>{{ $pet->created_at->format('d/m/Y \a\s H:i') }}h</td>
-
+                    <td>{{ $raca->raca }}</td>
+                    <td>{{ $raca->tipo->tipo }}</td>
+               {{-- <td>{{ $raca->raca }}</td> --}}
+               {{-- <td>{{ $raca->cor }}</td>--}}
+               {{-- <td>{{ $raca->porte }}</td> --}}
+                    {{-- <td>{{ $raca->created_at->format('d/m/Y \a\s H:i') }}h</td> --}}
                 </tr>
 
                 @empty
@@ -97,4 +87,3 @@
 @section('scripts')
 @parent
 @endsection
-

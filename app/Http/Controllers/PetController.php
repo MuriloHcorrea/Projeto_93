@@ -1,43 +1,20 @@
 <?php
-
-
-
 namespace App\Http\Controllers;
-
-
-
 use App\Models\Pet;
-
 use Illuminate\Http\Request;
-
 use App\Models\{
-
     Sexo,
-
     Raca,
-
     Cor,
-
     Porte,
-
     User,
-
     HistoricoPet
-
 };
-
-
-
 class PetController extends Controller
-
 {
-
     /**
-
      * Display a listing of the resource.
-
      */
-
     public function index()
 
     {
@@ -104,13 +81,19 @@ class PetController extends Controller
 
         $pet = Pet::with([
 
-           'pet',
+            'id_pet',
+
+            'id_pet',
+
+
 
         ])->find($id);
 
+
+
         return view('pet.show')
 
-            ->with(compact('pets'));
+            ->with(compact('pet'));
 
     }
 

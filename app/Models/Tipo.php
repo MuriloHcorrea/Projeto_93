@@ -10,7 +10,7 @@ class Tipo extends Model
 {
     use HasFactory;
 
-    protected $table = 'tipo';
+    protected $table = 'tipos';
     protected $primaryKey = 'id_tipo';
     protected $dates = [
 

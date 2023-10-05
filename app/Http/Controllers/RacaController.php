@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Pet;
+use App\Models\Tipo;
 use App\Models\Raca;
 use Illuminate\Http\Request;
+
 
 class RacaController extends Controller
 {
@@ -12,7 +14,8 @@ class RacaController extends Controller
      */
     public function index()
     {
-        //
+       $racas = Raca::orderBy('id_raca','desc')->paginate(10);
+        return view('raca.index')->with(compact('racas'));
     }
 
     /**
@@ -20,7 +23,11 @@ class RacaController extends Controller
      */
     public function create()
     {
-        //
+
+        $pet = null;
+        $racas = Raca::class;
+        $tipos = Tipo::class;
+        return view('raca.form')->with(compact('racas','tipos'));
     }
 
     /**
@@ -28,7 +35,8 @@ class RacaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Raca::create($request->all());
+       return redirect()->route('raca.index')->with('nova', 'raca cadastrado com sucesso!');
     }
 
     /**
@@ -36,7 +44,13 @@ class RacaController extends Controller
      */
     public function show(Raca $raca)
     {
-        //
+        $raca = Pet::with([
+            'id_raca',
+            'id_raca',
+        ])->find($id);
+        return view('raca.show')
+
+            ->with(compact('raca'));
     }
 
     /**
@@ -44,7 +58,12 @@ class RacaController extends Controller
      */
     public function edit(Raca $raca)
     {
-        //
+
+        $raca = Raca::find($id)->first();
+
+        return view('raca.form')
+
+            ->with(compact('raca'));
     }
 
     /**
@@ -52,7 +71,12 @@ class RacaController extends Controller
      */
     public function update(Request $request, Raca $raca)
     {
-        //
+        $raca = Raca::find($id);
+          $raca->update($request->all());
+          return redirect()
+              ->route('raca.index')
+              ->with('atualizado', ' Raças Atualizado com sucesso!');
+
     }
 
     /**
@@ -60,6 +84,9 @@ class RacaController extends Controller
      */
     public function destroy(Raca $raca)
     {
-        //
+        Raca::find($id)->delete();
+        return redirect()
+            ->back()
+            ->with('excluido', 'Excluído com sucesso!');
     }
 }
