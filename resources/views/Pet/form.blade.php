@@ -80,7 +80,7 @@
             <div class="col-md-2">
                 <label for="peso" class="form-label">Peso*</label>
                 <input type="text" id="peso" name="peso" value="{{
-                    $pet ? $pet->peso :old('peso') }}"required>>
+                    $pet ? $pet->peso :old('peso') }}"required>
             </div>
 
         <div class="col-md-2">
