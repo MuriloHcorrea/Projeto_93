@@ -32,10 +32,7 @@
                     <th>CRUD</th>
                     <th>Nome</th>
                     <th>Data de nascimento</th>
-                    <th>Peso</th>
-                    <th>Cor</th>
-                    <th>Endereço</th>
-                    <th>Criado em:</th>
+                    <th>Entrada na ONG em:</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">
@@ -68,13 +65,6 @@
                     </td>
                     <td>{{ $pet->nome }}</td>
                     <td>{{ $pet->dt_nascimento }}</td>
-               {{-- <td>{{ $pet->raca }}</td> --}}
-               {{-- <td>{{ $pet->cor }}</td>--}}
-               {{-- <td>{{ $pet->porte }}</td> --}}
-                    <td>{{ $pet->peso }}</td>
-                    <td>{{ $pet->castrado }}</td>
-                    <td>{{ $pet->deficiencia }}</td>
-                    <td>{{ $pet->vacina }}</td>
                     <td>{{ $pet->created_at->format('d/m/Y \a\s H:i') }}h</td>
 
                 </tr>

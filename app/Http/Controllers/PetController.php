@@ -61,10 +61,14 @@ class PetController extends Controller
      */
     public function edit(int $id)
     {
-        $pet = Pet::find($id)->first();
-        $sexos = Sexo::find($id);
-        return view('pet.form')
-            ->with(compact('pet','sexo'));
+        $pet   = Pet::find($id)->first();
+        $sexos = Sexo::orderBy('sexo', 'asc')->get();
+
+        return view('pet.form')->with(compact(
+            'pet',
+            'sexos'
+
+        ));
     }
     /**
      * Update the specified resource in storage.
@@ -72,8 +76,9 @@ class PetController extends Controller
     public function update(Request $request, Int $id)
       {
           $pet = Pet::find($id);
-          $sexos = Sexo::find($id);
           $pet->update($request->all());
+          $sexos = Sexo::find($id);
+          $sexos->update($request->all());
 
           return redirect()
               ->route('pet.index')

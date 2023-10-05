@@ -46,8 +46,25 @@
             <div class="col-md-2">
                 <label for="id_sexo"  class="form-label">Sexo</label>
                 <select name="id_sexo" id="id_sexo" class="form-select">
-                    <option value="{{$sexos::MACHO}}">Macho</option>
-                    <option value="{{$sexos::FEMEA}}">Femea</option>
+
+                    @foreach ($sexos as $sexo )
+                        <option value="{{$sexo->id_sexo}}"
+                            @selected(
+                                (
+                                    $pet &&
+                                    $pet->id_sexo == $sexo->id_sexo
+                                )
+                                ||
+                                old('id_sexo') == $sexo->id_sexo
+                            )
+                        >
+                            {{ $sexo->id_sexo}}
+                        </option>
+
+                    @endforeach
+
+                    {{-- <option value="{{$sexos::MACHO}}">Macho</option>
+                    <option value="{{$sexos::FEMEA}}">Femea</option> --}}
                 </select>
             </div>
 
