@@ -36,6 +36,7 @@ class AdocaoController extends Controller
             'adocao',
             'clientes',
             'pets'
+
         ));
     }
 
@@ -63,11 +64,16 @@ class AdocaoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Adocao $id)
+    public function edit(int $id)
     {
-        $adocao = Adocao::find($id)->first();
-        return view('adocao.form')
-            ->with(compact('adocao'));
+        $adocao   = Adocao::find($id)->first();
+        $clientes = Cliente::orderBy('nome', 'asc')->get();
+        $pets = Pet::orderBy('nome', 'asc')->get();
+        return view('adocao.form')->with(compact(
+            'adocao',
+            'clientes',
+            'pets'
+        ));
     }
 
     /**
@@ -77,6 +83,10 @@ class AdocaoController extends Controller
     {
         $adocao = Adocao::find($id);
         $adocao->update($request->all());
+
+        $clientes = Cliente::find($id);
+        $clientes->update($request->all());
+
         return redirect()
             ->route('adocao.index')
             ->with('atualizado', ' Status de adoção atualizada com sucesso!');

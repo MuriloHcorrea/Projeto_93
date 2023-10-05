@@ -38,7 +38,6 @@
 
         <input type="hidden" name="id_usuario" value="{{ Auth::user()->id }}">
 
-        <input type="hidden" name="status_adocao" value="Adotado">
 
         <label for="id_cliente" class="form-label">Cliente*</label>
 
@@ -92,6 +91,20 @@
         </select>
 
     </div>
+
+    <div class="col-md-2">
+        <label for="status_adocao" class="form-label">Status_adocao</label>
+        <input type="status_adocao" id="status_adocao" name="status_adocao" value="{{
+            $adocao ? $adocao->status_adocao :old('status_adocao') }}"required>>
+    </div>
+
+    {{-- <div class="col-md-2">
+        <label for="status_adocao"  class="form-label">Status da adoção:</label>
+        <select name="status_adocao" id="status_adocao" class="form-select">
+            <option value="{{$adocaos::ANDAMENTO}}">EM ANDAMENTO</option>
+            <option value="{{$adocaos::ADOTADO}}">ADOTADO</option>
+        </select>
+    </div> --}}
 
     <div class="col-md-3">
         <input class="btn btn-primary mt-4" type="submit"
