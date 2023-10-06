@@ -15,6 +15,9 @@
                 <tr>
                     <th class="col-md-2">ID</th>
                     <th>Nome</th>
+                    <th>Data de nascimento</th>
+                    <th>Sexo</th>
+                    <th>Data_criação</th>
 
                 </tr>
             </thead>
@@ -22,6 +25,8 @@
                 <tr @if ($pet->id_pet == 2) class="table-danger" @endif>
                     <td scope="row">{{ $pet->id_pet }}</td>
                     <td>{{$pet->nome}}</td>
+                    <td>{{$pet->dt_nascimento}}</td>
+                    <td>{{$pet->sexo->sexo}}</td>
                     <td>{{$pet->created_at}}</td>
                 </tr>
 

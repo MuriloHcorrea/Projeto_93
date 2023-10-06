@@ -66,7 +66,7 @@
                     </td>
                     <td>{{ $pet->nome }}</td>
                     <td>{{ $pet->dt_nascimento }}</td>
-                    <td>{{ $pet->id_sexo }}</td>
+                    <td>{{ $pet->sexo->sexo }}</td>
                     <td>{{ $pet->created_at->format('d/m/Y \a\s H:i') }}h</td>
 
                 </tr>

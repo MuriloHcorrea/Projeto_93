@@ -15,13 +15,21 @@
                 <tr>
                     <th class="col-md-2">ID</th>
                     <th>Nome Dono</th>
-
+                    <th>Data de nascimento</th>
+                    <th>CPF</th>
+                    <th>EMAIL</th>
+                    <th>Endereço</th>
+                    <th>Cadastrado em:</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">
                 <tr @if ($cliente->id_cliente == 2) class="table-danger" @endif>
                     <td scope="row">{{ $cliente->id_cliente }}</td>
                     <td>{{$cliente->nome}}</td>
+                    <td>{{$cliente->dt_nascimento}}</td>
+                    <td>{{$cliente->cpf}}</td>
+                    <td>{{$cliente->email}}</td>
+                    <td>{{$cliente->endereco}}</td>
                     <td>{{$cliente->created_at}}</td>
                 </tr>
 

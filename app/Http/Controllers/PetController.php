@@ -72,6 +72,7 @@ class PetController extends Controller
      */
     public function update(Request $request, Int $id)
       {
+
           $pet = Pet::find($id);
           $pet->update($request->all());
 
