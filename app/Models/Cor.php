@@ -18,7 +18,7 @@ class Cor extends Model
 
     use HasFactory;
 
-    protected $table = 'cor';
+    protected $table = 'cors';
 
     protected $primaryKey = 'id_cor';
 

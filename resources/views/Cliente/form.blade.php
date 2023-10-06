@@ -32,25 +32,25 @@ method="post" enctype="multipart/form-data" class="row g-3">
     <div class="col-md-2">
         <label for="email" class="form-label">E-mail*</label>
         <input type="email" id="email" name="email" value="{{
-            $cliente ? $cliente->email :old('email') }}"required>>
+            $cliente ? $cliente->email :old('email') }}"required>
     </div>
 
     <div class="col-md-2">
         <label for="dt_nascimento" class="form-label">Data de nascimento*</label>
         <input type="date" id="dt_nascimento" name="dt_nascimento" value="{{
-            $cliente ? $cliente->dt_nascimento :old('dt_nascimento') }}"required>>
+            $cliente ? $cliente->dt_nascimento :old('dt_nascimento') }}"required>
     </div>
 
     <div class="col-md-2">
         <label for="cpf" class="form-label">CPF*</label>
         <input type="text" id="cpf" name="cpf" value="{{
-            $cliente ? $cliente->cpf :old('cpf') }}"required>>
+            $cliente ? $cliente->cpf :old('cpf') }}"required>
     </div>
 
     <div class="col-md-2">
         <label for="endereco" class="form-label">Endereço*</label>
         <input type="text" id="endereco" name="endereco" value="{{
-            $cliente ? $cliente->endereco :old('endereco') }}"required>>
+            $cliente ? $cliente->endereco :old('endereco') }}"required>
     </div>
     <div class="col-md-2">
         <input class="btn btn-primary mt-4" type="submit"

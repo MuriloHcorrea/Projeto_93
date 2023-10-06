@@ -32,6 +32,7 @@
                     <th>CRUD</th>
                     <th>Nome</th>
                     <th>Data de nascimento</th>
+                    <th>Sexo</th>
                     <th>Entrada na ONG em:</th>
                 </tr>
             </thead>
@@ -65,6 +66,7 @@
                     </td>
                     <td>{{ $pet->nome }}</td>
                     <td>{{ $pet->dt_nascimento }}</td>
+                    <td>{{ $pet->id_sexo }}</td>
                     <td>{{ $pet->created_at->format('d/m/Y \a\s H:i') }}h</td>
 
                 </tr>

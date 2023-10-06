@@ -50,25 +50,22 @@ class PetController extends Controller
      */
     public function show(int $id)
     {
-        $pet = Pet::with([
-           'pet',
-        ])->find($id);
+        $pet = Pet::find($id);
         return view('pet.show')
-            ->with(compact('pets'));
+            ->with(compact('pet'));
     }
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(int $id)
     {
-        $pet   = Pet::find($id)->first();
-        $sexos = Sexo::orderBy('sexo', 'asc')->get();
+        $pet   = Pet::find($id);
+        $sexos = Sexo::class;
+        $racas = Raca::class;
 
-        return view('pet.form')->with(compact(
-            'pet',
-            'sexos'
-
-        ));
+        $portes = Porte::class;
+        $cores =  Cor::class;
+        return view('pet.form')->with(compact('pet','sexos','racas','portes','cores'));
     }
     /**
      * Update the specified resource in storage.
@@ -77,8 +74,6 @@ class PetController extends Controller
       {
           $pet = Pet::find($id);
           $pet->update($request->all());
-          $sexos = Sexo::find($id);
-          $sexos->update($request->all());
 
           return redirect()
               ->route('pet.index')

@@ -11,7 +11,7 @@ use App\Models\Pet;
 class Raca extends Model
 {
     use HasFactory;
-    protected $table = 'raca';
+    protected $table = 'racas';
 
     protected $primaryKey = 'id_raca';
 

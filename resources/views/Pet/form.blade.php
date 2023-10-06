@@ -38,16 +38,40 @@
             </div>
 
             <div class="col-md-2">
-                <label for="dt_nascimento" class="form-label">Data de nascimento</label>
-                <input type="date" id="dt_nascimento" name="dt_nascimento" class="form-control"
-                    value="{{ $pet ? $pet->dt_nascimento : old('dt_nascimento') }}"required>
+                <label for="dt_nascimento" class="form-label">Data de nascimento*</label>
+                <input type="date" id="dt_nascimento" name="dt_nascimento" class="form-control" value="{{
+                    $pet ? $pet->dt_nascimento : old('dt_nascimento') }}"required>
             </div>
+
+
+
 
             <div class="col-md-2">
                 <label for="id_sexo"  class="form-label">Sexo</label>
                 <select name="id_sexo" id="id_sexo" class="form-select">
+                    @foreach ($sexos::all() as $sexos)
+                        <option value="{{$sexos ->id_sexo}}"
+                            @selected(
+                                (
+                                    $pet &&
+                                    $pet->id_sexo == $sexos->id_sexo
+                                )
+                                ||
+                                old('id_sexo') == $sexos->id_sexo
+                            )
+                        >
 
-                    @foreach ($sexos as $sexo )
+                            {{$sexos->sexo}}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
+              {{-- <div class="col-md-2">
+                <label for="id_sexo"  class="form-label">Sexo</label>
+                <select name="id_sexo" id="id_sexo" class="form-select">
+
+                     @foreach ($sexos as $sexo )
                         <option value="{{$sexo->id_sexo}}"
                             @selected(
                                 (
@@ -58,45 +82,64 @@
                                 old('id_sexo') == $sexo->id_sexo
                             )
                         >
-                            {{ $sexo->id_sexo}}
+                            {{ $sexo->sexo}}
                         </option>
 
                     @endforeach
 
+                </select>
+            </div> --}}
+
                     {{-- <option value="{{$sexos::MACHO}}">Macho</option>
                     <option value="{{$sexos::FEMEA}}">Femea</option> --}}
-                </select>
-            </div>
+
 
         <div class="col-md-2">
             <label for="id_raca"  class="form-label">Raça</label>
             <select name="id_raca" id="id_raca" class="form-select">
-                    <option value="{{$racas::GOLDEN}}">GOLDEN</option>
-                    <option value="{{$racas::PERSA}}">PERSA</option>
-                    <option value="{{$racas::CALOPSITA}}">CALOPSITA</option>
+                @foreach ($racas::all() as $item)
+                    <option value="{{$item->id_raca}}">
+                        {{$item->raca}}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="col-md-2">
+            <label for="id_porte"  class="form-label">Porte</label>
+            <select name="id_porte" id="id_porte" class="form-select">
+                @foreach ($portes::all() as $portes)
+                    <option value="{{$portes ->id_porte}}"
+                        @selected(
+                            (
+                                $pet &&
+                                $pet->id_porte == $portes->id_porte
+                            )
+                            ||
+                            old('id_porte') == $portes->id_porte
+                        )
+                    >
+
+                        {{$portes->descricao}}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="col-md-2">
+            <label for="id_cor"  class="form-label">Cor</label>
+            <select name="id_cor" id="id_cor" class="form-select">
+                @foreach ($cores::all() as $item)
+                    <option value="{{$item->id_cor}}">
+                        {{$item->cor}}
+                    </option>
+                @endforeach
             </select>
         </div>
 
             <div class="col-md-2">
-                <label for="id_porte"  class="form-label">Porte</label>
-                <select name="id_porte" id="id_porte" class="form-select">
-                    <option value="{{$portes::PEQUENO}}">PEQUENO</option>
-                    <option value="{{$portes::MEDIO}}">MEDIO</option>
-                    <option value="{{$portes::GRANDE}}">GRANDE</option>
-                </select>
-            </div>
-            <div class="col-md-2">
-                <label for="id_cor"  class="form-label">Cor</label>
-                <select name="id_cor" id="id_cor" class="form-select">
-                    <option value="{{$cores::PRETO}}">PRETO</option>
-                    <option value="{{$cores::BRANCO}}">BRANCO</option>
-                    <option value="{{$cores::CARAMELO}}">CARAMELO</option>
-                </select>
-            </div>
-
-            <div class="col-md-2">
                 <label for="peso" class="form-label">Peso*</label>
-                <input type="text" id="peso" name="peso" value="{{
+                <input type="text" id="peso" name="peso" class="form-control" value="{{
                     $pet ? $pet->peso :old('peso') }}"required>
             </div>
 

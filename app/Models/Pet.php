@@ -76,10 +76,10 @@ class Pet extends Model
     ];
 
 
-    protected $casts = [
+    // protected $casts = [
 
-        'dt_nascimento' => 'date',
-    ];
+    //     'dt_nascimento' => 'date',
+    // ];
 
     /**
      * --------------------------------------------------

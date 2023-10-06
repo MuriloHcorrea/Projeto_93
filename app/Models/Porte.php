@@ -18,7 +18,7 @@ class Porte extends Model
 
     use HasFactory;
 
-    protected $table = 'porte';
+    protected $table = 'portes';
 
     protected $primaryKey = 'id_porte';
 
