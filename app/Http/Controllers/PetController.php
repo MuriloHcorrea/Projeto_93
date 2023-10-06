@@ -30,19 +30,13 @@ class PetController extends Controller
     public function create()
 
     {
-
         $pet = null;
-
+        $nome = Sexo::class;
         $sexos = Sexo::class;
-
         $racas = Raca::class;
-
         $portes = Porte::class;
-
         $cores =  Cor::class;
-
-        return view('pet.form')->with(compact('pet','sexos','racas','portes','cores'));
-
+        return view('pet.form')->with(compact('pet','nome','sexos','racas','portes','cores'));
     }
 
     /**
@@ -54,18 +48,11 @@ class PetController extends Controller
     public function store(Request $request)
 
     {
-
-
-
        // ($request->all());
-
-
 
         Pet::create($request->all());
 
        return redirect()->route('pet.index')->with('novo', 'pet cadastrado com sucesso!');
-
-
 
     }
 
@@ -85,8 +72,6 @@ class PetController extends Controller
 
             'id_pet',
 
-
-
         ])->find($id);
 
 
@@ -103,15 +88,26 @@ class PetController extends Controller
 
      */
 
-    public function edit(Pet $id)
+    public function edit(int $id)
 
     {
-
-        $pet = Pet::find($id)->first();
+        $pet = Pet::find($id);
+        $raca = Raca::class;
+        $cor = Cor::class;
+        $sexo = Sexo::class;
+        $porte = Porte::class;
+        $historico_pet = HistoricoPet::class;
 
         return view('pet.form')
 
-            ->with(compact('pet'));
+            ->with(compact(
+                'pet',
+                'raca',
+                'cor',
+                'sexo',
+                'porte',
+                'historico_pet'
+        ));
 
     }
 

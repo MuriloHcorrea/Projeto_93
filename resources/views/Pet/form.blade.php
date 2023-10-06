@@ -4,7 +4,7 @@
         @if ($pet)
             Editando Pet:
 
-            {{ $pet->nome }}
+            {{-- {{ $pet->nome }} --}}
         @else
            <div class="titulo">
             <h1> Cadastrar pet  </h1>
@@ -15,7 +15,8 @@
 
 
 
-    <form action="{{ $pet ? route('pet.update', ['id' => $pet->id_pet]) : route('pet.store') }}" method="post"
+    <form action="{{ $pet ? route('pet.update', ['id' => $pet->id_pet]) :
+     route('pet.store') }}" method="post"
         enctype="multipart/form-data" class="row g-3">
         @csrf
 
@@ -44,34 +45,34 @@
             <div class="col-md-2">
                 <label for="id_sexo"  class="form-label">Sexo</label>
                 <select name="id_sexo" id="id_sexo" class="form-select">
-                    <option value="{{$sexos::MACHO}}">Macho</option>
-                    <option value="{{$sexos::FEMEA}}">Femea</option>
+                    <option value="{{$sexo::MACHO}}">Macho</option>
+                    <option value="{{$sexo::FEMEA}}">Femea</option>
                 </select>
             </div>
 
         <div class="col-md-2">
             <label for="id_raca"  class="form-label">Raça</label>
             <select name="id_raca" id="id_raca" class="form-select">
-                    <option value="{{$racas::GOLDEN}}">GOLDEN</option>
-                    <option value="{{$racas::PERSA}}">PERSA</option>
-                    <option value="{{$racas::CALOPSITA}}">CALOPSITA</option>
+                    <option value="{{$raca::GOLDEN}}">GOLDEN</option>
+                    <option value="{{$raca::PERSA}}">PERSA</option>
+                    <option value="{{$raca::CALOPSITA}}">CALOPSITA</option>
             </select>
         </div>
 
             <div class="col-md-2">
                 <label for="id_porte"  class="form-label">Porte</label>
                 <select name="id_porte" id="id_porte" class="form-select">
-                    <option value="{{$portes::PEQUENO}}">PEQUENO</option>
-                    <option value="{{$portes::MEDIO}}">MEDIO</option>
-                    <option value="{{$portes::GRANDE}}">GRANDE</option>
+                    <option value="{{$porte::PEQUENO}}">PEQUENO</option>
+                    <option value="{{$porte::MEDIO}}">MEDIO</option>
+                    <option value="{{$porte::GRANDE}}">GRANDE</option>
                 </select>
             </div>
             <div class="col-md-2">
                 <label for="id_cor"  class="form-label">Cor</label>
                 <select name="id_cor" id="id_cor" class="form-select">
-                    <option value="{{$cores::PRETO}}">PRETO</option>
-                    <option value="{{$cores::BRANCO}}">BRANCO</option>
-                    <option value="{{$cores::CARAMELO}}">CARAMELO</option>
+                    <option value="{{$cor::PRETO}}">PRETO</option>
+                    <option value="{{$cor::BRANCO}}">BRANCO</option>
+                    <option value="{{$cor::CARAMELO}}">CARAMELO</option>
                 </select>
             </div>
 

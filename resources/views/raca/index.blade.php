@@ -63,10 +63,6 @@
                     </td>
                     <td>{{ $raca->raca }}</td>
                     <td>{{ $raca->tipo->tipo }}</td>
-               {{-- <td>{{ $raca->raca }}</td> --}}
-               {{-- <td>{{ $raca->cor }}</td>--}}
-               {{-- <td>{{ $raca->porte }}</td> --}}
-                    {{-- <td>{{ $raca->created_at->format('d/m/Y \a\s H:i') }}h</td> --}}
                 </tr>
 
                 @empty

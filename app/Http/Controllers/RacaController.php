@@ -1,10 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Pet;
-use App\Models\Tipo;
-use App\Models\Raca;
+
 use Illuminate\Http\Request;
+use App\Models\{
+    Pet,
+    Tipo,
+    Raca
+};
 
 
 class RacaController extends Controller
@@ -14,7 +17,7 @@ class RacaController extends Controller
      */
     public function index()
     {
-       $racas = Raca::orderBy('id_raca','desc')->paginate(10);
+        $racas = Raca::orderBy('id_raca', 'desc')->paginate(10);
         return view('raca.index')->with(compact('racas'));
     }
 
@@ -23,11 +26,15 @@ class RacaController extends Controller
      */
     public function create()
     {
-
-        $pet = null;
-        $racas = Raca::class;
+        $raca = null;
         $tipos = Tipo::class;
-        return view('raca.form')->with(compact('racas','tipos'));
+        return view('raca.form')
+            ->with(
+                compact(
+                    'raca',
+                    'tipos'
+                )
+            );
     }
 
     /**
@@ -36,53 +43,57 @@ class RacaController extends Controller
     public function store(Request $request)
     {
         Raca::create($request->all());
-       return redirect()->route('raca.index')->with('nova', 'raca cadastrado com sucesso!');
+        return redirect()
+            ->route('raca.index')
+            ->with('nova', 'raca cadastrado com sucesso!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Raca $raca)
+    public function show(int $id)
     {
-        $raca = Pet::with([
-            'id_raca',
-            'id_raca',
+        $raca = Raca::with([
+            'pet',
+            'tipo',
         ])->find($id);
-        return view('raca.show')
 
+        return view('raca.show')
             ->with(compact('raca'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Raca $raca)
+    public function edit(int $id)
     {
-
-        $raca = Raca::find($id)->first();
-
+        $raca = Raca::find($id);
+        $tipos = Tipo::class;
         return view('raca.form')
-
-            ->with(compact('raca'));
+            ->with(
+                compact(
+                    'raca',
+                    'tipos'
+                )
+            );
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Raca $raca)
+    public function update(Request $request, int $id)
     {
         $raca = Raca::find($id);
-          $raca->update($request->all());
-          return redirect()
-              ->route('raca.index')
-              ->with('atualizado', ' Raças Atualizado com sucesso!');
-
+        $raca->update($request->all());
+        return redirect()
+            ->route('raca.index')
+            ->with('atualizado', ' Raças Atualizado com sucesso!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Raca $raca)
+    public function destroy(int $id)
     {
         Raca::find($id)->delete();
         return redirect()

@@ -85,20 +85,26 @@ Route::middleware('auth')->group(function () {
         ->controller(RacaController::class)
         ->middleware('auth')
         ->group(function () {
-            Route::get('/', 'index')
-                ->name('raca.index');
-            Route::get('/novo', 'create')
-                ->name('raca.create');
-            Route::get('/editar/{id}', 'edit')
-                ->name('raca.edit');
-            Route::get('exibir/{id}', 'show')
-                ->name('raca.show');
-            Route::post('cadastrar', 'store')
-                ->name('raca.store');
-            Route::post('atualizar/{id}', 'update')
-                ->name('raca.update');
-            Route::post('excluir/{id}', 'destroy')
-                ->name('raca.destroy');
-            });
+             Route::get('/', 'index')
+                 ->name('raca.index');
+             Route::get('/novo', 'create')
+                 ->name('raca.create');
+             Route::get('/editar/{id}', 'edit')
+                 ->name('raca.edit');
+             Route::get('exibir/{id}', 'show')
+                 ->name('raca.show');
+             Route::post('cadastrar', 'store')
+                 ->name('raca.store');
+             Route::post('atualizar/{id}', 'update')
+                 ->name('raca.update');
+             Route::post('excluir/{id}', 'destroy')
+                 ->name('raca.destroy');
+
+//             Route::get('/racas/{raca}', 'RacaController@show')->name('raca.show');
+// Route::get('/racas/{raca}/edit', 'RacaController@edit')->name('raca.edit');
+// Route::post('/racas/{raca}/update', 'RacaController@update')->name('raca.update');
+// Route::post('/racas/{raca}/destroy', 'RacaController@destroy')->name('raca.destroy');
+        });
+
 
 require __DIR__.'/auth.php';

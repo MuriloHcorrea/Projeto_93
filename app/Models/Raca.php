@@ -31,9 +31,9 @@ class Raca extends Model
     ];
 
 
-    const GOLDEN =1;
-    const PERSA =2;
-    const CALOPSITA =3;
+    const GOLDEN = 1;
+    const PERSA = 2;
+    const CALOPSITA = 3;
 
 
     /**
@@ -42,28 +42,24 @@ class Raca extends Model
 
      */
 
-     public function pet(){
+    public function pet()
+    {
 
         return $this->belongsTo(
             Pet::class,
             'id_raca',
             'id_raca'
-            );
+        );
+    }
 
 
-
-     }
-
-
-     public function tipo(){
+    public function tipo()
+    {
 
         return $this->belongsTo(
             Tipo::class,
             'id_tipo',
             'id_tipo'
-            );
-
-
-
-     }
+        );
+    }
 }
