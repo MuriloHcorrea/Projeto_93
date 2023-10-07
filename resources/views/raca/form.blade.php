@@ -10,7 +10,7 @@
         @endif
 
     </h1>
-    <form action="{{ $raca ? route('raca.update', ['id' => $raca->id_raca]) : route('raca.store') }}" method="post"
+    <form action="{{ $raca ? route('raca.update',    ['id' => $raca->id_raca]) : route('raca.store') }}" method="post"
         enctype="multipart/form-data" class="row g-3">
         @csrf
 

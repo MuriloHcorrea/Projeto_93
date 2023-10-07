@@ -6,11 +6,11 @@
 
         <i class="bi bi-wallet2"></i>
 
-        - Raca
+        - Raça
         |
         <a class="btn btn-primary"
            href="{{ route('raca.create') }}">
-            Nova raca
+            Nova raça
         </a>
     </h1>
     {{-- alerts --}}
@@ -22,15 +22,15 @@
     <div class="table-responsive">
         <table class="table table-striped  table-hover ">
             <thead>
-                <caption>LISTA DE</caption>
+                {{-- <caption>LISTA DE RAÇA</caption> --}}
                 <tr>
                     <th>CRUD</th>
-                    <th>Nome</th>
+                    <th>Raça</th>
+                    <th>Tipo</th>
                     <th>Data de nascimento</th>
-                    <th>Peso</th>
-                    <th>Cor</th>
-                    <th>Endereço</th>
-                    <th>Criado em:</th>
+                    {{-- <th>Peso</th>
+                    <th>Cor</th> --}}
+                    {{-- <th>Criado em:</th> --}}
                 </tr>
             </thead>
             <tbody class="table-group-divider">
@@ -63,7 +63,14 @@
                     </td>
                     <td>{{ $raca->raca }}</td>
                     <td>{{ $raca->tipo->tipo }}</td>
+                    <td>{{$raca->created_at}}</td>
                 </tr>
+
+
+
+
+
+                </tbody>
 
                 @empty
                  <tr>
