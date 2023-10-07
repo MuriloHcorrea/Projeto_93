@@ -65,6 +65,18 @@
                     </a>
 
                 </li>
+                <li class="nav-item">
+                    <a href="http://127.0.0.1:8000/pet" class="nav-link" id="link">Pet</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://127.0.0.1:8000/raca" class="nav-link" id="link">Raças</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://127.0.0.1:8000/adocao" class="nav-link" id="link">Raças</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://127.0.0.1:8000/cliente" class="nav-link" id="link">Clientes</a>
+                </li>
 
             </ul>
 

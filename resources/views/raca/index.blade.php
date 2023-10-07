@@ -1,6 +1,6 @@
 @extends('layouts.base')
-
 @section('content')
+
 
     <h1>
 
@@ -28,9 +28,6 @@
                     <th>Raça</th>
                     <th>Tipo</th>
                     <th>Data de nascimento</th>
-                    {{-- <th>Peso</th>
-                    <th>Cor</th> --}}
-                    {{-- <th>Criado em:</th> --}}
                 </tr>
             </thead>
             <tbody class="table-group-divider">
