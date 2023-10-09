@@ -37,7 +37,7 @@
             </tbody>
         </table>
 
-        <a class="btn btn-dark" href="{{ route('adocao.edit', ['id' => $cliente->id_cliente]) }}">
+        <a class="btn btn-dark" href="{{ route('cliente.edit', ['id' => $cliente->id_cliente]) }}">
             <i class="bi bi-pencil-square"> Editar Cliente</i>
         </a>
     @endsection

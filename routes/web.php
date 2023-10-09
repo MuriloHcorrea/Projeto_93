@@ -4,6 +4,7 @@ use App\Http\Controllers\AdocaoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\PetController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RacaController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Cliente;
 use GuzzleHttp\Exception\ClientException;
@@ -125,8 +126,26 @@ Route::get('/dashboard', function () {
         });
 
 
+        Route::prefix('raca')
+        ->controller(RacaController::class)
+        ->middleware('auth')
+        ->group(function () {
+             Route::get('/', 'index')
+                 ->name('raca.index');
+             Route::get('/novo', 'create')
+                 ->name('raca.create');
+             Route::get('/editar/{id}', 'edit')
+                 ->name('raca.edit');
+             Route::get('exibir/{id}', 'show')
+                 ->name('raca.show');
+             Route::post('cadastrar', 'store')
+                 ->name('raca.store');
+             Route::post('atualizar/{id}', 'update')
+                 ->name('raca.update');
+             Route::post('excluir/{id}', 'destroy')
+                 ->name('raca.destroy');
 
-
+                });
 
 
 
