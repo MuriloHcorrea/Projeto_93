@@ -2,7 +2,9 @@
 
 @section('content')
 
-<h1>
+<h1 class="titulo">
+    <i class="fa-solid fa-pen-to-square"></i>
+
     @if ($cliente)
         Editando cliente:
         {{ $cliente->nome }}
@@ -61,7 +63,17 @@ method="post" enctype="multipart/form-data" class="row g-3">
     </div>
 
 </form>
-
+<style>
+    .titulo{
+        margin: 30px 10px;
+    }
+    .titulo a{
+        margin-left: 20px
+    }
+    #colunas{
+        font-size: 17px
+    }
+</style>
 
 
 @endsection

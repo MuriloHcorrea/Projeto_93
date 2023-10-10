@@ -18,24 +18,15 @@
     </h1>
 
     {{-- alerts --}}
-
     @include('layouts.partials.alerts')
-
     {{-- /alerts --}}
 
-    {{-- paginação --}}
-
-        {{-- {!! $cliente->links() !!} --}}
-
-    {{-- /paginação --}}
 
     <div class="table-responsive">
 
         <table class="table table-striped  table-hover ">
 
             <thead>
-
-                {{-- <caption>LISTA DE RAÇA</caption> --}}
 
                 <tr>
 

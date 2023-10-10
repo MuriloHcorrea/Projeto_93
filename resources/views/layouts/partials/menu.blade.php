@@ -1,75 +1,36 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+<!-- bootstrap css -->
+<link rel="stylesheet" href="{{asset('css\bootstrap.min.css')}}">
+<!-- style css -->
+<link rel="stylesheet" href="{{asset('css\style.css')}}">
+<!-- Responsive-->
+<link rel="stylesheet" href="{{asset('css\responsive.css')}}">
 
-    <div class="container-fluid">
-
-        <a class="navbar-brand" href="#">Forever Home</a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-
-            <span class="navbar-toggler-icon"></span>
-
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+   <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+   <!-- Tweaks for older IEs-->
+   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
 
 
-
-            <ul class="navbar-nav">
-
-                <li class="nav-item">
-
-                    <a class="nav-link">
-
-                    Olá {{ Auth::user()->name }}
-
-                    |
-
-                    </a>
-
-                </li>
-
-                <li class="nav-item">
-
-                    <a class="nav-link" href="{{ route('cliente.index') }}">
-
-                        <i class="bi bi-wallet2"></i>
-
-                        Cliente
-
-                    </a>
-
-                </li>
-
-                <li class="nav-item">
-
-                    {{-- <a class="nav-link" href="{{ route('pet.index') }}">
-
-                        <i class="bi bi-list-check"></i>
-
-                        Pet's
-
-                    </a> --}}
-
-                </li>
-
-                <li class="nav-item">
-
-                    <a class="nav-link" href="{{ route('logout') }}">
-
-                        <i class="bi bi-box-arrow-right"></i>
-
-                        Sair
-
-                    </a>
-
-                </li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-</nav>
+   <div id="side_bar" class="sidenav">
+      <div class="side_bar_logo">
+         <div class="logo"> <a href="index.html"><img src="{{asset('images/logo.png')}}" alt="#"></a> </div>
+      </div>
+      <a href="javascript:void(0)" class="closebtn" onClick="closeNav1()">X</a>
+      <div class="scoll_to_id_menu">
+         <nav class="nav">
+            <div class="padded">
+               <ul>
+                  <li><a class="nav-section2" href="#">HOME </a></li>
+                  <li><a class="nav-section3" href="{{ route('pet.index') }}">PET </a></li>
+                  <li><a class="nav-section4" href="{{ route('cliente.index') }}">CLIENTE </a></li>
+                  <li><a class="nav-section5" href="{{ route('adocao.index') }}">ADOÇÃO </a></li>
+               </ul>
+               <div class="top_btn">
+                  <a class="read_more paoo" href="{{ route('logout') }}"><i class="bi bi-box-arrow-right"></i>
+                     Sair</a>
+               </div>
+            </div>
+         </nav>
+      </div>
+   </div>

@@ -1,18 +1,30 @@
 @extends('layouts.base')
+
 @section('content')
-    <h1>
+
+    {{-- alerts --}}
+    @include('layouts.partials.alerts')
+    {{-- /alerts --}}
+
+    <h1 class="titulo">
+
+
         @if ($pet)
             Editando Pet:
 
             {{ $pet->nome }}
         @else
-           <div class="titulo">
-            <h1> Cadastrar pet  </h1>
+           <div class="nome">
+            <i class="fa-solid fa-pen-to-square"></i>
+            <h1> Novo pet  </h1>
            </div>
         @endif
 
     </h1>
 
+        {{-- alerts --}}
+        @include('layouts.partials.alerts')
+        {{-- /alerts --}}
 
 
     <form action="{{ $pet ? route('pet.update', ['id' => $pet->id_pet]) : route('pet.store') }}" method="post"
@@ -152,17 +164,27 @@
     </form>
 
     <style>
-       .titulo{
-        height: 100px;
-        display:flex;
-        align-items: center;
-        margin: center
-       }
-    label{
-        font-size: 20px;
-    }
+        .nome{
+            display: flex;
+        }
+        .nome h1{
+            margin-left: 20px ;
+        }
+        .titulo{
+            margin: 30px 10px;
+
+        }
+        .titulo a{
+            margin-left: 20px
+        }
+        #colunas{
+            font-size: 17px
+        }
     </style>
+{{-- Modal Excluir --}}
+@include('layouts.partials.modalExcluir')
+{{-- /Modal Excluir --}}
 @endsection
 @section('scripts')
-    @parent
+@parent
 @endsection

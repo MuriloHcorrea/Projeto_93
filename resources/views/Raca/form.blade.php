@@ -2,7 +2,8 @@
 
 @section('content')
 
-    <h1>
+    <h1 class="titulo">
+        <i class="fa-solid fa-pen-to-square"></i>
         @if ($raca)
             Editando Raça:{{ $raca->raca }}
         @else

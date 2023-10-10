@@ -2,9 +2,9 @@
 
 @section('content')
 
-    <h1>
+    <h1 class="titulo">
 
-        <i class="bi bi-wallet2"></i>
+        <i class="fa-solid fa-paw"></i>
 
         - Pet
         |
@@ -12,6 +12,12 @@
            href="{{ route('pet.create') }}">
             Novo pet
         </a>
+
+        <a class="btn btn-primary"
+           href="{{ route('raca.create') }}">
+            Cadastrar nova raça
+        </a>
+
     </h1>
 
     {{-- alerts --}}
@@ -19,15 +25,10 @@
     {{-- /alerts --}}
 
 
-    {{-- paginação --}}
-        {{-- {!! $cliente->links() !!} --}}
-    {{-- /paginação --}}
-
 
     <div class="table-responsive">
         <table class="table table-striped  table-hover ">
             <thead>
-                <caption>LISTA DE</caption>
                 <tr>
                     <th>CRUD</th>
                     <th>Nome</th>
@@ -81,7 +82,17 @@
             </tbody>
         </table>
     </div>
-
+    <style>
+        .titulo{
+            margin: 30px 10px;
+        }
+        .titulo a{
+            margin-left: 20px
+        }
+        #colunas{
+            font-size: 17px
+        }
+    </style>
 {{-- Modal Excluir --}}
 @include('layouts.partials.modalExcluir')
 {{-- /Modal Excluir --}}

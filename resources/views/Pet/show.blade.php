@@ -4,7 +4,7 @@
 {{-- Modal Excluir --}}
 @include('layouts.partials.modalExcluir')
 {{-- /Modal Excluir --}}
-    <h1>
+    <h1 class="titulo">
         <i class="bi bi-list-check"></i>
         Pet: {!! $pet->id_pet !!}
     </h1>
@@ -33,7 +33,17 @@
 
             </tbody>
         </table>
-
+        <style>
+            .titulo{
+                margin: 30px 10px;
+            }
+            .titulo a{
+                margin-left: 20px
+            }
+            #colunas{
+                font-size: 17px
+            }
+        </style>
         <a class="btn btn-dark" href="{{ route('pet.edit', ['id' => $pet->id_pet]) }}">
             <i class="bi bi-pencil-square"> Editar pet</i>
         </a>

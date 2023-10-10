@@ -2,9 +2,9 @@
 
 @section('content')
 
-<h1 class="mx-3 my-4">
+<h1 class="mx-3 my-4" class="titulo">
 
-    <i class="bi bi-wallet2"></i>
+    <i class="fa-solid fa-pen-to-square"></i>
 
     @if ($adocao)
 
@@ -119,7 +119,17 @@
 
 
 </form>
-
+<style>
+    .titulo{
+        margin: 30px 10px;
+    }
+    .titulo a{
+        margin-left: 20px
+    }
+    #colunas{
+        font-size: 17px
+    }
+</style>
 @endsection
 
 @section('scripts')

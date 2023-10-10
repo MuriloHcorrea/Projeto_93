@@ -2,9 +2,9 @@
 
 @section('content')
 
-    <h1>
+    <h1 class="titulo">
 
-        <i class="bi bi-wallet2"></i>
+        <i class="fa-solid fa-user"></i>
 
         - CLIENTES
         |
@@ -27,15 +27,14 @@
     <div class="table-responsive">
         <table class="table table-striped  table-hover ">
             <thead>
-                <caption>LISTA DE</caption>
                 <tr>
-                    <th>CRUD</th>
-                    <th>Nome</th>
-                    <th>Data de nascimento</th>
-                    <th>CPF</th>
-                    <th>E-mail</th>
-                    <th>Endereço</th>
-                    <th>Criado em:</th>
+                    <th id="colunas">CRUD</th>
+                    <th id="colunas">Nome:</th>
+                    <th id="colunas">Nascimento:</th>
+                    <th id="colunas">CPF:</th>
+                    <th id="colunas">E-mail:</th>
+                    <th id="colunas">Endereço:</th>
+                    <th id="colunas">Cadastrado:</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">
@@ -83,7 +82,17 @@
             </tbody>
         </table>
     </div>
-
+<style>
+    .titulo{
+        margin: 30px 10px;
+    }
+    .titulo a{
+        margin-left: 20px
+    }
+    #colunas{
+        font-size: 17px
+    }
+</style>
 {{-- Modal Excluir --}}
 @include('layouts.partials.modalExcluir')
 {{-- /Modal Excluir --}}
