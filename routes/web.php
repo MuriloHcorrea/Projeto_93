@@ -25,11 +25,13 @@ Route::get('/cliente', function () {
 })->middleware(['auth', 'verified'])->name('cliente');
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return redirect('cliente');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    // return view('dashboard');
+    return redirect(route('cliente.index'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
