@@ -23,8 +23,11 @@
     {{-- alerts --}}
     @include('layouts.partials.alerts')
     {{-- /alerts --}}
-
-
+    <div class="row">
+    <form  action="{{ route('pet.index')}}" method="get">
+        <input class="form-control col-md-4" type="search" name="search" id="search"
+        placeholder="Pesquise algo" value="{{ old('search',request()->get('search'))}}">
+    </div>
 
     <div class="table-responsive">
         <table class="table table-striped  table-hover ">

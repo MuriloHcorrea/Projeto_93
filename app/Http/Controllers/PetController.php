@@ -12,17 +12,41 @@ use App\Models\{
     User,
     HistoricoPet
 };
+use Illuminate\Support\Facades\Auth;
 
 class PetController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $pets = Pet::orderBy('id_pet','desc')->paginate(10);
-        return view('pet.index')
-            ->with(compact('pets'));
+        $search = $request->get('search');
+        $nome = $request->get('nome')??null;
+        $search_nome =$request->get('search_nome')??null;;
+        // return view('pet.index')
+        //     ->with(compact('pets'));
+
+            $pet = Pet::where('id_user',Auth::user()->id )->where(function ($query) use($search,$nome, $search_nome){
+
+                if ($search_nome){
+                    $query->where('id_centro_custo','=',$search_nome);
+                }
+
+                // if($nome ){
+                //     $query->where('nome ','=',$nome);
+                // }
+                // if($search){
+                //   $query->where('nome','like',"%$search%");
+                // }
+            } )
+
+            ->orderBy('id_pet','desc')
+                ->paginate(10);
+
+            return view('pet.index')
+                ->with(compact('pets'));
     }
     public function create()
     {
