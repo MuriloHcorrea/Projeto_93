@@ -24,9 +24,26 @@
     @include('layouts.partials.alerts')
     {{-- /alerts --}}
     <div class="row">
-    <form  action="{{ route('pet.index')}}" method="get">
-        <input class="form-control col-md-4" type="search" name="search" id="search"
-        placeholder="Pesquise algo" value="{{ old('search',request()->get('search'))}}">
+    <form  action="{{ route('pet.index')}}" method="get" class="row mb-2">
+
+        <label>Nome</label>
+        <input class="form-control col-md-4 mb-4" type="search" name="search" id="search"
+        placeholder="Digite o nome do pet..." value="{{ old('search',request()->get('search'))}}">
+
+        <label for="id_sexo" class="form-label">Sexo</label>
+                <select name="id_sexo" id="id_sexo" class="form-select mb-4">
+                    <option value="">Selecione...</option>
+                    @foreach ($sexos::all() as $sexo)
+                        <option value="{{$sexo ->id_sexo}}">
+                            {{$sexo->sexo}}
+                        </option>
+                    @endforeach
+                </select>
+
+        <button type="submit" class="btn btn-primary ms-2 col-md-2 mb-2">Pesquisar</button>
+
+        <button value="{{route('pet.index')}}" class="btn btn-secondary ms-2 col-md-2 mb-2">Limpar</button>
+    </form>
     </div>
 
     <div class="table-responsive">

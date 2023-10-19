@@ -21,32 +21,32 @@ class PetController extends Controller
      */
     public function index(Request $request)
     {
-        $pets = Pet::orderBy('id_pet','desc')->paginate(10);
+        $sexos = Sexo::class;
+        // $pets = Pet::orderBy('id_pet','desc')->paginate(10);
         $search = $request->get('search');
         $nome = $request->get('nome')??null;
+        $id_sexo = $request->get('id_sexo')??null;
         $search_nome =$request->get('search_nome')??null;;
         // return view('pet.index')
         //     ->with(compact('pets'));
 
-            $pet = Pet::where('id_user',Auth::user()->id )->where(function ($query) use($search,$nome, $search_nome){
+            $pets = Pet::where(function ($query) use($search, $id_sexo){
 
-                if ($search_nome){
-                    $query->where('id_centro_custo','=',$search_nome);
+                if ($search){
+                    $query->where('nome','LIKE','%'.$search.'%');
                 }
 
-                // if($nome ){
-                //     $query->where('nome ','=',$nome);
-                // }
-                // if($search){
-                //   $query->where('nome','like',"%$search%");
-                // }
+                if ($id_sexo){
+                    $query->where('id_sexo','=',$id_sexo);
+                }
+
             } )
 
             ->orderBy('id_pet','desc')
                 ->paginate(10);
 
             return view('pet.index')
-                ->with(compact('pets'));
+                ->with(compact('pets','sexos'));
     }
     public function create()
     {
